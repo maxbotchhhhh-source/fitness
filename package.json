@@ -1,0 +1,17 @@
+{
+  "name": "orlov-fitness",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Лендинг фитнес-тренера Максима Орлова: React + Vite + TypeScript, Node.js + Express, PostgreSQL, хостинг tuna.am",
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "db:up": "docker compose up -d db",
+    "db:init": "npm --prefix server run db:init --",
+    "user:create": "npm --prefix server run user:create --",
+    "dev": "concurrently -n server,client -c blue,green \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix client run build && npm --prefix server run build",
+    "start": "npm --prefix server run start",
+    "tunnel": "tuna http 3000"
+  },
+  "devDependencies": { "concurrently": "^8.2.2" }
+}

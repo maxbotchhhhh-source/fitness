@@ -1,0 +1,15 @@
+# PostgreSQL 16 (по ТЗ — не ниже 15). Параметры совпадают с .env.example
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: orlov
+      POSTGRES_PASSWORD: orlov_pass
+      POSTGRES_DB: orlov_fitness
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
